@@ -4,3 +4,4 @@ minimumReleaseAge: 10080
 packages:
   - "api"
   - "app"
+  - "shared"

@@ -28,6 +28,7 @@
     "project": "./tsconfig.json"
   },
   "dependencies": {
+    "shared": "workspace:*",
     "express": "^5.2.1",
     "express-zod-safe": "^3.2.1",
     "fuse.js": "^7.3.0",

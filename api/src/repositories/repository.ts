@@ -1,4 +1,4 @@
-import type { Entity } from '../models/entity'
+import type { Entity } from 'shared'
 import { QueryBuilder } from './query-builder'
 
 export abstract class Repository<T extends Entity> {

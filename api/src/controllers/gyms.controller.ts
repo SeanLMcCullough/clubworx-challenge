@@ -7,10 +7,8 @@ import _ from 'lodash'
 
 import { environment } from '../environment'
 import { GymRepository } from '../repositories'
-import { Gym } from '../models'
-
-import { PageRequest, GymFilterRequest } from '../requests'
-import type { PageResponse } from '../responses'
+import { Gym, PageRequest, GymFilterRequest } from 'shared'
+import type { PageResponse } from 'shared'
 
 const PageGymFilterRequest = z.object({
   ...PageRequest.shape,

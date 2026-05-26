@@ -71,14 +71,14 @@ My implementation is my own, and Gemini was used to ensure that I do not miss an
 - [x] API is built with Node.js.
 - [x] Data layer uses an in-memory collection or JSON fixture (no persistence layer).
 - [x] Filtering engine includes text-search across multiple fields.
-- [ ] Filtering engine includes a handful of filters.
-- [ ] Filtering engine includes at least one multi-select filter.
-- [ ] Sorting works on any allowed column.
+- [x] Filtering engine includes a handful of filters.
+- [x] Filtering engine includes at least one multi-select filter.
+- [x] Sorting works on any allowed column.
 - [x] Pagination (cursor or offset) is implemented and justified.
 - [x] Architecture utilizes a composable query object or filter pipeline.
 - [x] Data access is efficient (no repeated lookups per item).
 - [x] Error shape is consistent across endpoints.
-- [ ] Includes capability to mutate a gym record. (may be optional)
+- [x] Includes capability to mutate a gym record. (may be optional)
 
 ### Frontend
 

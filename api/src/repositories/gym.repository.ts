@@ -2,7 +2,7 @@ import Fuse from 'fuse.js'
 import { QueryBuilder } from './query-builder'
 
 import { Repository } from './repository'
-import type { Gym } from '../models'
+import type { Gym } from 'shared'
 
 export class GymRepository extends Repository<Gym> {
   private readonly fuse: Fuse<Gym>
