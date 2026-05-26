@@ -1,6 +1,6 @@
 import z, { type ZodType } from 'zod'
 
-export const PageResponse = <T extends ZodType>(schema: T): ZodType =>
+export const PageResponse = <T extends ZodType>(schema: T) =>
   z.object({
     page: z.number(),
     perPage: z.number(),

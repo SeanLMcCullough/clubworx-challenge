@@ -9,7 +9,8 @@ const Environment = z.object({
   GYMS_JSON_PATH: z
     .string()
     .default('./data/gyms.json')
-    .describe('Path to the JSON file containing gym data.')
+    .describe('Path to the JSON file containing gym data.'),
+  CORS: z.string().default('http://localhost:5173')
 })
 
 const env = Environment.safeParse(process.env)

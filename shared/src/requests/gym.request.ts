@@ -3,7 +3,7 @@ import z from 'zod'
 import { GymAmenity } from '../models'
 
 export const GymFilterRequest = z.object({
-  isOpenToNewMembers: z.boolean().optional(),
+  isOpenToNewMembers: z.stringbool().optional(),
   amenities: z
     .string()
     .transform((s) => s.split(','))

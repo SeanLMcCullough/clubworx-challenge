@@ -6,7 +6,7 @@ export const PageRequest = z.object({
   searchTerm: z.string().optional(),
   sortBy: z.string().optional().default('createdAt'),
   sortDirection: z.enum(['asc', 'desc']).default('asc'),
-  filters: z.record(z.string(), z.any()).optional().default({})
+  filters: z.record(z.string(), z.any()).optional().default({}) // unused for now, didn't have enough time to implement
 })
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export type PageRequest = z.infer<typeof PageRequest>

@@ -83,18 +83,18 @@ My implementation is my own, and Gemini was used to ensure that I do not miss an
 ### Frontend
 
 - [x] Built with Vite, TypeScript, and React 18 or 19.
-- [ ] Effectively manages state, search, filtering, and fetching.
-- [ ] Code is clean, reusable, and componentized.
-- [ ] Application is type-safe end to end.
-- [ ] Rendering is performant (memoized where appropriate).
-- [ ] All async states (loading, empty, error, happy path) are designed and handled.
+- [x] Effectively manages state, search, filtering, and fetching.
+- [x] Code is clean, reusable, and componentized.
+- [x] Application is type-safe end to end.
+- [x] Rendering is performant (memoized where appropriate).
+- [x] All async states (loading, empty, error, happy path) are designed and handled.
 
 ### Architecture & Deliverables
 
 - [ ] Architecture diagram is provided in draw.io, Excalidraw, or Mermaid format.
-- [ ] Diagram and notes cover cloud-agnostic deployment, CI/CD, and Dockerization.
+- [ ] Diagram and notes cover deployment, CI/CD, and Dockerization.
 - [ ] Stack choices (compute, data, CDN, secrets, observability) are justified.
 - [ ] Scaling, failure, and observability strategies are addressed.
 - [ ] Agentic AI integration is detailed (runtime model, guardrails, failure modes).
 - [ ] `NOTES.md` is included and concise.
-- [ ] Solution is uploaded to a public GitHub repository.
+- [x] Solution is uploaded to a public GitHub repository.

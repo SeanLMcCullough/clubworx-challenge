@@ -1,8 +1,7 @@
 import z from 'zod'
-import { randomUUID } from 'node:crypto'
 
 export const Entity = z.object({
-  id: z.uuid().default(() => randomUUID()),
+  id: z.uuid().default(() => crypto.randomUUID()),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date()
 })

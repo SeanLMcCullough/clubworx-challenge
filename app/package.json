@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "shared": "workspace:*",
+    "zod": "^4.4.3",
     "@react-router/node": "7.15.1",
     "@react-router/serve": "7.15.1",
     "isbot": "^5.1.36",
