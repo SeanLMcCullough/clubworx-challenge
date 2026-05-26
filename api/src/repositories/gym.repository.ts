@@ -5,7 +5,7 @@ import { Repository } from './repository'
 import type { Gym } from '../models'
 
 export class GymRepository extends Repository<Gym> {
-  private fuse: Fuse<Gym>
+  private readonly fuse: Fuse<Gym>
 
   constructor(data: Gym[]) {
     super(data)
@@ -14,8 +14,8 @@ export class GymRepository extends Repository<Gym> {
     })
   }
 
-  search(term: string): QueryBuilder<Gym> {
-    if (!term?.trim()) return this.query()
+  search(term?: string): QueryBuilder<Gym> {
+    if (term === undefined || term.trim() === '') return this.query()
 
     const results = this.fuse.search(term)
     return new QueryBuilder<Gym>(results.map((res) => res.item))

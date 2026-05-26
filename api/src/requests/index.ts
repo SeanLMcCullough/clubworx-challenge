@@ -1,2 +1,2 @@
 export * from './page.request'
-export * from './search.request'
+export * from './gym.request'

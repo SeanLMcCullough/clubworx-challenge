@@ -2,7 +2,7 @@ import { pino, type Logger } from 'pino'
 
 import { environment } from './environment'
 
-export function createLogger(name: string): Logger {
+export function createLogger (name: string): Logger {
   return pino({
     name,
     level: environment.LOG_LEVEL,

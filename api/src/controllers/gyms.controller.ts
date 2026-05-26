@@ -1,15 +1,21 @@
 import { Router } from 'express'
-import type { Request, Response } from 'express'
+import type { Response } from 'express'
 import fs from 'node:fs'
-import z from 'zod'
+import z, { ZodString } from 'zod'
 import validate, { type ValidatedRequest } from 'express-zod-safe'
+import _ from 'lodash'
 
 import { environment } from '../environment'
 import { GymRepository } from '../repositories'
 import { Gym } from '../models'
 
-import { PageRequest, SearchRequest } from '../requests'
-import type { PageResponse, SearchResponse } from '../responses'
+import { PageRequest, GymFilterRequest } from '../requests'
+import type { PageResponse } from '../responses'
+
+const PageGymFilterRequest = z.object({
+  ...PageRequest.shape,
+  ...GymFilterRequest.shape
+})
 
 export function createGymsController(): Router {
   const data = fs.readFileSync(environment.GYMS_JSON_PATH, 'utf-8')
@@ -19,40 +25,89 @@ export function createGymsController(): Router {
 
   router.get(
     '/',
-    validate({ query: PageRequest }),
+    validate({ query: PageGymFilterRequest }),
     async (
-      req: ValidatedRequest<{ query: typeof PageRequest }>,
+      req: ValidatedRequest<{ query: typeof PageGymFilterRequest }>,
       res: Response
     ) => {
-      const { page, perPage } = req.query
-      const skip = (page - 1) * perPage
-      const take = perPage
+      const {
+        page,
+        perPage,
+        searchTerm,
+        sortBy,
+        sortDirection,
+        isOpenToNewMembers,
+        amenities
+      } = req.query
+      console.log({ amenities })
 
       const count = await repository.count()
-      const results = await repository.query().paginate(skip, take).execute()
 
-      res.json({
+      const query =
+        searchTerm !== undefined
+          ? repository.search(searchTerm)
+          : repository.query()
+
+      if (isOpenToNewMembers !== undefined) {
+        query.where((gym) => gym.isOpenToNewMembers === isOpenToNewMembers)
+      }
+
+      if (amenities !== undefined) {
+        query.where((gym) =>
+          amenities.every((amenity) => gym.amenities.includes(amenity))
+        )
+      }
+
+      const results = await query
+        .sortBy((o) => _.get(o, sortBy), sortDirection === 'desc')
+        .paginate(page, perPage)
+        .execute()
+
+      const data: PageResponse<typeof Gym> = {
         page,
         perPage,
         total: count,
         items: results
-      } as PageResponse<typeof Gym>)
+      }
+      res.json(data)
     }
   )
 
   router.get(
-    '/search',
-    validate({ query: SearchRequest }),
+    '/:id',
+    validate({ params: { id: z.string() } }),
     async (
-      req: ValidatedRequest<{ query: typeof SearchRequest }>,
+      req: ValidatedRequest<{ params: { id: ZodString } }>,
       res: Response
     ) => {
-      const { term, limit } = req.query
-      const items = await repository.search(term).paginate(0, limit).execute()
-      res.json({
-        term,
-        items
-      } as SearchResponse<typeof Gym>)
+      const { id } = req.params
+      const gym = await repository.get(id)
+      if (gym == null) {
+        res.status(404).json({ message: 'Gym not found' })
+        return
+      }
+      res.json(gym)
+    }
+  )
+
+  router.patch(
+    '/:id',
+    validate({ body: Gym, params: { id: z.string() } }),
+    async (
+      req: ValidatedRequest<{ body: typeof Gym; params: { id: ZodString } }>,
+      res: Response
+    ) => {
+      const { id } = req.params
+
+      const gym = await repository.get(id)
+      if (gym == null) {
+        res.status(404).json({ message: 'Gym not found' })
+        return
+      }
+
+      Object.assign(gym, req.body)
+
+      res.json(gym)
     }
   )
 

@@ -6,4 +6,5 @@ export const Entity = z.object({
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date()
 })
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export type Entity = z.infer<typeof Entity>

@@ -3,6 +3,7 @@ import z from 'zod'
 import { Entity } from './entity'
 
 export const MembershipInterval = z.enum(['weekly', 'monthly', 'yearly'])
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export type MembershipInterval = z.infer<typeof MembershipInterval>
 
 export const GymAmenity = z.enum([
@@ -25,6 +26,7 @@ export const GymAmenity = z.enum([
   'Showers',
   'Wi-Fi'
 ])
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export type GymAmenity = z.infer<typeof GymAmenity>
 
 export const GymType = z.enum([
@@ -36,6 +38,7 @@ export const GymType = z.enum([
   'Powerlifting',
   'Yoga'
 ])
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export type GymType = z.infer<typeof GymType>
 
 export const Gym = z.object({
@@ -60,4 +63,5 @@ export const Gym = z.object({
       message: 'Amenities must be unique'
     })
 })
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export type Gym = z.infer<typeof Gym>

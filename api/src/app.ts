@@ -1,10 +1,10 @@
-import express from 'express'
+import express, { type Express } from 'express'
 import pinoHTTP from 'pino-http'
 
 import { createLogger } from './logger'
 import { createGymsController } from './controllers'
 
-export function createApp() {
+export function createApp (): Express {
   const logger = createLogger('app')
 
   const app = express()

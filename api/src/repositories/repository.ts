@@ -4,29 +4,26 @@ import { QueryBuilder } from './query-builder'
 export abstract class Repository<T extends Entity> {
   protected data: T[] = []
 
-  constructor(data: T[]) {
+  constructor (data: T[]) {
     this.data = data
   }
 
-  count(): Promise<number> {
-    return Promise.resolve(this.data.length)
+  async count (): Promise<number> {
+    return await Promise.resolve(this.data.length)
   }
 
-  all(): Promise<T[]> {
-    return Promise.resolve([])
+  async all (): Promise<T[]> {
+    return await Promise.resolve([])
   }
 
-  get(id: string): Promise<T> {
+  async get (id: string): Promise<T | null> {
     const entity = this.data.find((entity) => entity.id === id)
-    if (!entity) {
-      return Promise.reject(`Entity with id ${id} not found`)
-    }
-    return Promise.resolve(entity)
+    return await Promise.resolve(entity ?? null)
   }
 
-  query(): QueryBuilder<T> {
+  query (): QueryBuilder<T> {
     return new QueryBuilder<T>(this.data)
   }
 
-  abstract search(query: string): QueryBuilder<T>
+  abstract search (query: string): QueryBuilder<T>
 }
