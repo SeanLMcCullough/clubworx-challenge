@@ -35,12 +35,13 @@ export const GymSearchResultsItem = memo(function GymSearchResultsItem({
         <p className="text-xs text-gray-600">{gym.email}</p>
       </div>
 
-      <p className="text-xs text-gray-500 mb-2">
+      {/* <p className="text-xs text-gray-500 mb-2">
         <span className="font-medium">
           {gym.acn !== undefined ? 'ACN' : 'ABN'}:
         </span>{' '}
         {gym.acn ?? gym.abn}
-      </p>
+      </p> */}
+      <span className="font-medium">{gym.activeMemberCount}</span>
 
       <div className="flex flex-wrap gap-1">
         {[...gym.amenities].sort().map((amenity) => (

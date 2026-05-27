@@ -12,6 +12,5 @@ if (!env.success) {
   throw new Error('Invalid environment variables')
 }
 
- 
 export type Environment = z.infer<typeof Environment>
 export const environment = env.data

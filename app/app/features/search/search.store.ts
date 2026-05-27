@@ -54,7 +54,7 @@ function setState(_state: Partial<SearchState>): void {
 }
 
 async function fetchGyms(): Promise<void> {
-  const {params} = state
+  const { params } = state
   setState({ isLoading: true, error: null })
 
   try {
@@ -66,8 +66,9 @@ async function fetchGyms(): Promise<void> {
     url.searchParams.set('sortBy', params.sortBy)
     url.searchParams.set('sortDirection', params.sortDirection)
 
-    if (params.searchTerm !== '')
-      {url.searchParams.set('searchTerm', params.searchTerm)}
+    if (params.searchTerm !== '') {
+      url.searchParams.set('searchTerm', params.searchTerm)
+    }
 
     if (params.isOpenToNewMembers !== undefined) {
       url.searchParams.set(
