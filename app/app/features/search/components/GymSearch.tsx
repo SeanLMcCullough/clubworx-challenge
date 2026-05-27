@@ -34,7 +34,7 @@ export function GymSearch() {
         <button
           className="lg:hidden absolute top-4 left-4 z-30 bg-white p-3 rounded-md shadow-md text-gray-700 hover:bg-gray-50"
           onClick={() => {
-            setIsSearchOpen(true)
+            setIsSearchOpen(!isSearchOpen)
           }}
         >
           <Menu />
