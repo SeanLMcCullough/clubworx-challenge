@@ -6,7 +6,7 @@ My submission for the Clubworx technical challenge to build a basic gym search A
 
 My implementation is 90% manually coded, with 10% Claude to help solve some tricky bugs and issues with Leaflet.
 
-The React App uses a basic store using the `useSyncExternalStore` hook for a simpel dependency-free state management. Search result components are memoised as they are re-rendered frequently.
+The React App uses a basic store using the `useSyncExternalStore` hook for a simple dependency-free state management. Search result components are memoised as they are re-rendered frequently.
 
 Leaflet is used for a map overview. I've been doing a lot of Leaflet and geospatial data in my own project recently and felt it was a good application of skills here.
 
