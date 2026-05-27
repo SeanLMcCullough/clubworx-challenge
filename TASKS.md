@@ -91,10 +91,10 @@ My implementation is my own, and Gemini was used to ensure that I do not miss an
 
 ### Architecture & Deliverables
 
-- [ ] Architecture diagram is provided in draw.io, Excalidraw, or Mermaid format.
-- [ ] Diagram and notes cover deployment, CI/CD, and Dockerization.
-- [ ] Stack choices (compute, data, CDN, secrets, observability) are justified.
-- [ ] Scaling, failure, and observability strategies are addressed.
-- [ ] Agentic AI integration is detailed (runtime model, guardrails, failure modes).
-- [ ] `NOTES.md` is included and concise.
+- [x] Architecture diagram is provided in draw.io, Excalidraw, or Mermaid format.
+- [x] Diagram and notes cover deployment, CI/CD, and Dockerization.
+- [x] Stack choices (compute, data, CDN, secrets, observability) are justified.
+- [x] Scaling, failure, and observability strategies are addressed.
+- [x] Agentic AI integration is detailed (runtime model, guardrails, failure modes).
+- [x] `NOTES.md` is included and concise.
 - [x] Solution is uploaded to a public GitHub repository.
