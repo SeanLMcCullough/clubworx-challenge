@@ -2,7 +2,7 @@
 
 ![Screenshot](./assets/screenshot_full.png)
 
-My submission for the Clubworx technical challenge to build a basic gym search API and Web App. My implementation uses React and Node.JS (express) in order to simplify the type rese between the two without introducing OpenAPI.
+My submission for the Clubworx technical challenge to build a basic gym search API and Web App. My implementation uses React and Node.JS (express) in order to simplify the type reuse between the two without introducing OpenAPI.
 
 My implementation is 90% manually coded, with 10% Claude to help solve some tricky bugs and issues with Leaflet.
 
