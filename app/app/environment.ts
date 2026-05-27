@@ -12,6 +12,6 @@ if (!env.success) {
   throw new Error('Invalid environment variables')
 }
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+ 
 export type Environment = z.infer<typeof Environment>
 export const environment = env.data

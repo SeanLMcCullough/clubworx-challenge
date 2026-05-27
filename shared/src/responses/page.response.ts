@@ -1,5 +1,6 @@
 import z, { type ZodType } from 'zod'
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const PageResponse = <T extends ZodType>(schema: T) =>
   z.object({
     page: z.number(),

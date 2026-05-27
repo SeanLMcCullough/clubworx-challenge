@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from 'react'
-import { Gym, GymAmenity, PageResponse } from 'shared'
+import { Gym, type GymAmenity, PageResponse } from 'shared'
 import { environment } from '../../environment'
 
 interface SearchParams {
@@ -54,7 +54,7 @@ function setState(_state: Partial<SearchState>): void {
 }
 
 async function fetchGyms(): Promise<void> {
-  const params = state.params
+  const {params} = state
   setState({ isLoading: true, error: null })
 
   try {
@@ -67,7 +67,7 @@ async function fetchGyms(): Promise<void> {
     url.searchParams.set('sortDirection', params.sortDirection)
 
     if (params.searchTerm !== '')
-      url.searchParams.set('searchTerm', params.searchTerm)
+      {url.searchParams.set('searchTerm', params.searchTerm)}
 
     if (params.isOpenToNewMembers !== undefined) {
       url.searchParams.set(
@@ -82,9 +82,7 @@ async function fetchGyms(): Promise<void> {
     const response = await fetch(url.toString())
     if (!response.ok) throw new Error(`HTTP ${response.status}`)
 
-    const data = PageResponse(Gym).parse(await response.json()) as PageResponse<
-      typeof Gym
-    >
+    const data = PageResponse(Gym).parse(await response.json())
     setState({ gyms: data.items, total: data.total, isLoading: false })
   } catch (e) {
     setState({

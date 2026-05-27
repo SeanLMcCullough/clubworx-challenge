@@ -15,7 +15,7 @@ const PageGymFilterRequest = z.object({
   ...GymFilterRequest.shape
 })
 
-export function createGymsController(): Router {
+export function createGymsController (): Router {
   const data = fs.readFileSync(environment.GYMS_JSON_PATH, 'utf-8')
   const gyms = z.array(Gym).parse(JSON.parse(data))
   const repository = new GymRepository(gyms)
@@ -91,7 +91,7 @@ export function createGymsController(): Router {
     '/:id',
     validate({ body: Gym, params: { id: z.string() } }),
     async (
-      req: ValidatedRequest<{ body: typeof Gym; params: { id: ZodString } }>,
+      req: ValidatedRequest<{ body: typeof Gym, params: { id: ZodString } }>,
       res: Response
     ) => {
       const { id } = req.params

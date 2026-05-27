@@ -13,6 +13,8 @@
     }
   },
   "scripts": {
+    "lint": "ts-standard",
+    "lint:fix": "ts-standard --fix",
     "typecheck": "tsc --noEmit",
     "build": "tsc"
   },
@@ -21,6 +23,10 @@
   },
   "devDependencies": {
     "@types/node": "^22.19.19",
+    "ts-standard": "^12.0.2",
     "typescript": "^6.0.3"
+  },
+  "ts-standard": {
+    "project": "./tsconfig.json"
   }
 }

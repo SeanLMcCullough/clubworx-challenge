@@ -6,7 +6,7 @@ import { environment } from './environment'
 import { createLogger } from './logger'
 import { createGymsController } from './controllers'
 
-export function createApp(): Express {
+export function createApp (): Express {
   const logger = createLogger('app')
 
   const app = express()
