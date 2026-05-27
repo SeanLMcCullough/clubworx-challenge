@@ -37,7 +37,6 @@ export function createGymsController(): Router {
         isOpenToNewMembers,
         amenities
       } = req.query
-      console.log({ amenities })
 
       const count = await repository.count()
 
