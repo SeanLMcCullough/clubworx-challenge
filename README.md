@@ -15,7 +15,7 @@ The Gym data was generated using an LLM and is not accurate, but somewhat close 
 ## Documentation
 
 - [Notes](./NOTES.md)
-- [Tasklist and Checklist]('./TASKS.md')
+- [Tasklist and Checklist](./TASKS.md)
 
 ## More screenshots
 
